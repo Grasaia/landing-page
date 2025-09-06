@@ -4,137 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Charity:Water</title>
+  <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body, html {
-      height: 100%;
-      width: 100%;
+      font-family: 'Proxima Nova', Arial, sans-serif;
     }
 
     body {
-      background: url('https://d35lvrk9fb4ftj.cloudfront.net/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2U4MWJjNzc5NTdmMTZhN2U0YjYzMDhmZWQ1ODE2ZDFhYWI1OGFmYjMvcHJldmlldy9KU18yMDE3MDgwM18yODU5LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTkyMCwiaGVpZ2h0IjoxMDgwLCJmaXQiOiJjb3ZlciIsIndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZX19fQ==') no-repeat center center/cover;
+      background: url('https://d35lvrk9fb4ftj.cloudfront.net/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2U4MWJjNzc5NTdmMTZhN2U0YjYzMDhmZWQ1ODE2ZDFhYWI1OGFmYjMvcHJldmlldy9KU18yMDE3MDgwM18yODU5LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTYwMCwiaGVpZ2h0IjoxNjAwLCJmaXQiOiJjb3ZlciIsIndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZX19fQ==') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    .overlay {
-      background: rgba(0,0,0,0.7);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
+      min-height: 100vh;
+      color: #fff;
     }
 
     .container {
       max-width: 1100px;
       width: 100%;
-      border-radius: 8px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 10px;
       overflow: hidden;
-      z-index: 1;
-      color: white;
-      padding: 20px;
-      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
 
     .header {
-      background: #d4af37;
-      color: black;
-      padding: 25px 30px;
+      background: linear-gradient(90deg, #d4af37, #f5deb3);
+      padding: 20px;
       display: flex;
       align-items: center;
       font-weight: bold;
-      justify-content: center;
-      border-radius: 8px;
-      font-size: 32px;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: fit-content;
-      z-index: 2;
+      font-size: 28px;
+      color: #000;
     }
 
     .header img {
-      width: 60px;
-      height: 60px;
-      margin-right: 20px;
+      width: 55px;
+      height: 55px;
+      margin-right: 15px;
       object-fit: contain;
     }
 
     .content {
-      margin-top: 140px;
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
     }
 
-    .content h1 {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      border: 2px solid #d4af37;
-      padding: 10px;
-      background: rgba(0,0,0,0.6);
+    .left {
+      flex: 1;
+      min-width: 300px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .content p {
+    .left h1 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #f5deb3;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    }
+
+    .left p {
       font-size: 16px;
       margin-bottom: 25px;
       line-height: 1.6;
-      background: rgba(0,0,0,0.6);
-      display: inline-block;
-      padding: 10px;
-      border-radius: 8px;
+      color: #fff;
     }
 
     .cta-box {
       display: flex;
-      justify-content: center;
       gap: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
     }
 
     .cta-box input {
       flex: 1;
-      padding: 10px;
+      padding: 12px;
       border-radius: 5px;
       border: none;
-      min-width: 200px;
+      outline: none;
     }
 
     .cta-box button {
       background: #d4af37;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border-radius: 5px;
       color: black;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    .droplet-container {
+    .cta-box button:hover {
+      background: #f5deb3;
+    }
+
+    .droplets {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin-top: 20px;
+      gap: 20px;
+      margin-top: 30px;
       flex-wrap: wrap;
     }
 
     .droplet {
       width: 60px;
-      height: 80px;
-      background: #d4af37;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      height: 90px;
+      background: linear-gradient(180deg, #00bfff, #1e90ff);
+      border-radius: 50% 50% 60% 60%;
       position: relative;
       cursor: pointer;
-      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
     }
 
     .droplet:hover {
@@ -143,20 +133,19 @@
 
     .tooltip {
       visibility: hidden;
-      width: 200px;
-      background: #f5f5dc;
-      color: black;
-      text-align: center;
-      border-radius: 8px;
-      padding: 10px;
+      opacity: 0;
       position: absolute;
       bottom: 110%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
-      opacity: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      white-space: nowrap;
       transition: opacity 0.3s;
       font-size: 14px;
+      z-index: 1;
     }
 
     .droplet:hover .tooltip {
@@ -164,47 +153,84 @@
       opacity: 1;
     }
 
+    .right {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
     .donate-btn {
-      margin-top: 40px;
-      background: #000;
-      padding: 15px 25px;
-      border: 2px solid #d4af37;
+      margin-top: 20px;
+      background: #d4af37;
+      padding: 15px 30px;
+      border: none;
       border-radius: 5px;
-      color: #d4af37;
+      color: black;
       font-weight: bold;
       cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s, color 0.3s;
+      font-size: 18px;
+      transition: background 0.3s ease;
     }
 
     .donate-btn:hover {
-      background: #d4af37;
-      color: black;
+      background: #f5deb3;
+    }
+
+    .mission, .impact, .testimonials {
+      margin-top: 40px;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .mission h2, .impact h2, .testimonials h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #d4af37;
+    }
+
+    .mission p, .impact p, .testimonials p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .testimonials blockquote {
+      font-style: italic;
+      margin: 15px auto;
+      max-width: 600px;
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      text-align: center;
+      color: #f5deb3;
+    }
+
+    footer a {
+      color: #d4af37;
+      margin: 0 10px;
+      text-decoration: none;
     }
 
     @media (max-width: 768px) {
-      .cta-box {
+      .content {
         flex-direction: column;
-        align-items: center;
       }
-
-      .cta-box input {
-        width: 100%;
-      }
-
-      .header {
-        font-size: 24px;
-      }
-
-      .header img {
-        width: 45px;
-        height: 45px;
+      .right {
+        margin-top: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
   <div class="container">
     <div class="header">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTr4dIui0HVtHycYyAOiW4L1GTQ5_qVkxwnA&s" alt="Logo">
@@ -212,28 +238,57 @@
     </div>
 
     <div class="content">
-      <h1>Water is life, and everyone deserves it. Your support turns open hands into full cups.</h1>
-      <p>Clean water is a universal need—and with your gift, we can ensure no one is left reaching for this basic human right</p>
+      <div class="left">
+        <h1>Water is life, and everyone deserves it. Your support turns open hands into full cups.</h1>
+        <p>Clean water is a universal need—and with your gift, we can ensure no one is left reaching for this basic human right.</p>
 
-      <div class="cta-box">
-        <input type="text" placeholder="Enter your email">
-        <button>Get Started</button>
+        <div class="cta-box">
+          <input type="text" placeholder="Enter your email to help">
+          <button>Get Started</button>
+        </div>
+
+        <div class="droplets">
+          <div class="droplet">
+            <div class="tooltip">771 million people still lack access to clean water</div>
+          </div>
+          <div class="droplet">
+            <div class="tooltip">Access to clean water can reduce waterborne disease deaths by up to 50%</div>
+          </div>
+          <div class="droplet">
+            <div class="tooltip">Every 2 minutes, a child dies from a water-related disease</div>
+          </div>
+        </div>
       </div>
 
-      <div class="droplet-container">
-        <div class="droplet">
-          <div class="tooltip">771 million people still lack access to clean water</div>
-        </div>
-        <div class="droplet">
-          <div class="tooltip">Access to clean water can reduce waterborne disease deaths by up to 50%</div>
-        </div>
-        <div class="droplet">
-          <div class="tooltip">Every 2 minutes, a child dies from a water-related disease</div>
-        </div>
+      <div class="right">
+        <button class="donate-btn">Donate Now</button>
       </div>
-
-      <button class="donate-btn">Donate Now</button>
     </div>
+
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <p>We’re dedicated to bringing clean and safe drinking water to communities worldwide. Every drop you give brings hope, health, and a future.</p>
+    </div>
+
+    <div class="impact">
+      <h2>How Your Donation Helps</h2>
+      <p>Just $40 can provide clean water for one person. Your support funds sustainable projects, maintains wells, and educates communities on safe water practices.</p>
+    </div>
+
+    <div class="testimonials">
+      <h2>What People Are Saying</h2>
+      <blockquote>“Thanks to Charity:Water, our village now has fresh water, and our children are healthier and happier.”</blockquote>
+      <blockquote>“Giving is easy when you know every dollar truly makes a difference.”</blockquote>
+    </div>
+
+    <footer>
+      <p>Follow us on
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a> |
+        <a href="#">Instagram</a>
+      </p>
+    </footer>
   </div>
 </body>
 </html>
+
